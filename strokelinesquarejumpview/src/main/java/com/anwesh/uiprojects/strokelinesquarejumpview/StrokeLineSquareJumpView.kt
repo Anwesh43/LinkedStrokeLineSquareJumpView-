@@ -200,4 +200,13 @@ class StrokeLineSquareJumpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : StrokeLineSquareJumpView {
+            val view : StrokeLineSquareJumpView = StrokeLineSquareJumpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
