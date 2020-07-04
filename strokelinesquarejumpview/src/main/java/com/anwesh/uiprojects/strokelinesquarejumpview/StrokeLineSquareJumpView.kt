@@ -177,4 +177,27 @@ class StrokeLineSquareJumpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : StrokeLineSquareJumpView) {
+
+        private val animator : Animator = Animator(view)
+        private val slsj : StrokeLineSquareJump = StrokeLineSquareJump(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            slsj.draw(canvas, paint)
+            animator.animate {
+                slsj.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            slsj.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
