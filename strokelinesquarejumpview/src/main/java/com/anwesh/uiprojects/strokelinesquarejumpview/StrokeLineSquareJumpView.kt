@@ -32,8 +32,9 @@ fun Canvas.drawStrokeLineSquareJump(scale : Float, w : Float, h : Float, paint :
     save()
     translate(w / 2, (h - size) * (1 - sf5))
     for (j in 0..(lines - 1)) {
-        val sfi : Float = sf.divideScale(j, lines)
+        val sfi : Float = sf.divideScale(j, lines + 1)
         save()
+        translate(0f, size / 2)
         rotate(90f * j)
         translate(-size / 2, -size / 2)
         drawLine(0f, 0f, size * sfi, 0f, paint)
