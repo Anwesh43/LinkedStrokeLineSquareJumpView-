@@ -24,3 +24,29 @@ fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse()).toFloat()
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
 fun Float.sinify() : Float = Math.sin(this * Math.PI).toFloat()
+
+fun Canvas.drawStrokeLineSquareJump(scale : Float, w : Float, h : Float, paint : Paint) {
+    val size : Float = Math.min(w, h) / sizeFactor
+    val sf : Float = scale.sinify()
+    val sf5 : Float = sf.divideScale(4, lines + 1)
+    save()
+    translate(w / 2, (h - size) * (1 - sf5))
+    for (j in 0..(lines - 1)) {
+        val sfi : Float = sf.divideScale(j, lines)
+        save()
+        rotate(90f * j)
+        translate(-size / 2, -size / 2)
+        drawLine(0f, 0f, size * sfi, 0f, paint)
+        restore()
+    }
+    restore()
+}
+
+fun Canvas.drawSLSJNode(i : Int, scale : Float, paint : Paint) {
+    val w : Float = width.toFloat()
+    val h : Float = height.toFloat()
+    paint.color = Color.parseColor(colors[i])
+    paint.strokeCap = Paint.Cap.ROUND
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
+    drawStrokeLineSquareJump(scale, w, h, paint)
+}
