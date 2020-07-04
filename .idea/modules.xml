@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LinkedStrokeLineSquareJumpView.iml" filepath="$PROJECT_DIR$/LinkedStrokeLineSquareJumpView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strokelinesquarejumpview/strokelinesquarejumpview.iml" filepath="$PROJECT_DIR$/strokelinesquarejumpview/strokelinesquarejumpview.iml" />
+    </modules>
+  </component>
+</project>
